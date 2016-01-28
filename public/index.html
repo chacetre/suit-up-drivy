@@ -1,33 +1,89 @@
 <!DOCTYPE html>
 <html>
   <head>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" href="drivy.css" />
     <title>CSS/HTML Workshop with Drivy</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	
   </head>
-  <body>
-    <div id="car">
-      <input class="model" type="text" placeholder="Car model"/>
-      <input class="price-by-day" type="number" placeholder="Price by day"/>
-      <input class="price-by-km" type="number" placeholder="Price by km"/>
-    </div>
-    <div id="rental">
-      <input class="begin" type="date" placeholder="Rental begin date"/>
-      <input class="end" type="date" placeholder="Rental end date"/>
-      <input class="distance" type="number" placeholder="Distance in km"/>
-      <input class="option" type="checkbox" placeholder="Deductible option"/>
-    </div>
-    <button id="compute">Compute</button>
-    <div id="actors"></div>
-    <script id="template" type="x-tmpl-mustache">
-      {{#actors}}
-        <div class="actor">
-          <span>{{who}}</span>
-          <span>{{type}}</span>
-          <span>{{amount}}</span>
-        </div>
-      {{/actors}}
-    </script>
+  
+  <body> 
+     
+	  <nav id="custom-bootstrap-menu" class="navbar-default">
+			
+			<div class="container">			
+				<div class="navbar-collapse collapse">				
+				 <img src="./logo-drivy.png"/>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#">Home</a>
+						</li>
+						<li>
+							<a href="#">About</a>
+						</li>
+						<li>
+							<a href="#">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>		
+
+    
+  		
+<div id="content">
+	<div id="car">
+		<div class ="panel panel-danger">
+			<div class ="panel-heading">
+			<h3 class="panel-title"> Choix de la voiture </h3>
+			</div>
+		<div class="panel-body">
+      <input class="model form-control" type="text" placeholder="Car model"/>
+      <input class="price-by-day form-control" type="number" placeholder="Price by day"/>
+      <input class="price-by-km form-control" type="number" placeholder="Price by km"/>
+		</div>
+		</div>
+		</div>
+		
+		<div id="rental">
+		<div class ="panel panel-danger">
+		<div class ="panel-heading">
+		<h3 class="panel-title"> Détail de location</h3>
+		</div>
+		<div class="panel-body">
+			<input class="begin form-control" type="date" placeholder="Rental begin date jj/mm/aaaa"/>
+			<input class="end form-control" type="date" placeholder="Rental end date jj/mm/aaaa"/>
+			<input class="distance form-control" type="number" placeholder="Distance in km"/>
+			<label class="checkbox-inline"><input type="checkbox"class="option " value="" placeholder="Deductible option">Assurance Accident</label>
+		</div>
+		</div>
+		</div>		
+	
+	<button id="compute" class="btn btn-lg btn-danger">Compute</button>
+		
+	
+	<div class ="panel panel-danger">
+		<div class ="panel-heading">
+			<h3 class="panel-title">Remuneration</h3>
+		</div>
+		<div class="panel-body">	
+			<div id="actors" >	
+				
+					<script id="template" type="x-tmpl-mustache">
+					  {{#actors}}
+						<div class="actor">	
+						  <h4>{{who}}</h4>
+						  <p>{{amount}} $ {{type}}</p>							
+						</div>
+					  {{/actors}}
+					</script>
+				</div>
+		</div>
+	</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
     <script src="drivy.js"></script>
     <script src="index.js"></script>
+	</div>
   </body>
 </html>
